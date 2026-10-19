@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body{width:260px;margin:0;padding:14px;font-family:system-ui,sans-serif;background:#fbf6ec;color:#3a3226}
+  h1{font-size:16px;margin:0 0 10px}
+  select,button{width:100%;box-sizing:border-box;padding:8px;margin-bottom:8px;border-radius:8px;
+    border:1px solid #cdbfa5;background:#fff;font-size:13px;cursor:pointer}
+  button.primary{background:#3a3226;color:#fff;border-color:#3a3226}
+  button:hover{filter:brightness(.96)}
+  .row{display:flex;gap:6px}.row button{margin:0}
+  #count{font-size:12px;opacity:.7;margin:6px 0 2px;text-align:center}
+  
+  /* Individual Notes Checklist */
+  .notes-list {
+    max-height: 160px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #cdbfa5;
+    border-radius: 8px;
+    padding: 6px;
+    margin-top: 6px;
+  }
+  .note-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    padding: 4px 6px;
+    border-bottom: 1px solid #f2ebd9;
+  }
+  .note-item:last-child { border-bottom: none; }
+  .note-item input[type="checkbox"] { cursor: pointer; }
+  .note-snippet {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+  <h1>📝 Sticky Notes</h1>
+  <select id="skin"></select>
+  <button class="primary" id="add">+ New note</button>
+  <div class="row">
+    <button id="export">⬇ Export JSON</button>
+    <button id="import">⬆ Import</button>
+  </div>
+  <input type="file" id="file" accept="application/json" hidden>
+  
+  <p id="count"></p>
+  <div class="notes-list" id="notesList"></div>
+  <p id="status" style="font-size:11px;text-align:center;margin:4px 0 0"></p>
+
+  <script src="skins.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
